@@ -13,5 +13,21 @@ if(window.location.hash!='#gleam'&&(''+document.cookie).match(/(^|;)\s*GleamtKFG
 var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
 g.src = "https://dropbear.gleam.io/tKFGZ/ol.js"; s.parentNode.insertBefore(g, s);
 }(document, "script"));</script>
+    
+        
+    
+
+    
+    <script>
+        window.onGleamEvent = function(payload) {
+            var p = documument.createElement("p")
+            p.textContent = payload;
+            document.getElementById("callbacks").appendChild(p);
+        }
+    </script>
+    
+    <div id="callbacks">
+        <h1>Callbacks</h1>
+    </div>
 </body>
 </html>
