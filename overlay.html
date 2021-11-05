@@ -20,7 +20,7 @@ g.src = "https://dropbear.gleam.io/tKFGZ/ol.js"; s.parentNode.insertBefore(g, s)
     
     <script>
         window.onGleamEvent = function(payload) {
-            var p = documument.createElement("p")
+            var p = document.createElement("p")
             p.textContent = payload;
             document.getElementById("callbacks").appendChild(p);
         }
