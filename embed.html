@@ -17,7 +17,7 @@
     <script>
         window.onGleamEvent = function(payload) {
             var p = document.createElement("p")
-            p.textContent = payload;
+            p.textContent = JSON.stringify(payload);
             document.getElementById("callbacks").appendChild(p);
         }
     </script>
