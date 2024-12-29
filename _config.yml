@@ -74,6 +74,27 @@ social-network-links:
 #  itchio: yourname
 #  untappd: yourname
 
+###############################################
+# --- List of links in the navigation bar --- #
+###############################################
+
+navbar-links:
+  Hire Me: hire
+  My Projects:
+    - Gleam: gleam
+    - ServerBear: serverbear
+    - Thinng: thinng
+    - Couponzor: couponzor
+    - StoreCrowd: storecrowd
+  My Interests:
+    - (Audio) Books: books
+    - Boardgames: boardgames
+    - Finance: finance
+    - Magic: magic
+    - Pinball: pinball
+    - Snowboarding: snowboarding
+    - Weightlifting: weightlifting
+    - Retro Gaming: retro
 
 # Exclude from processing.
 # The following items will not be processed, by default.
