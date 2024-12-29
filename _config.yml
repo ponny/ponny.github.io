@@ -62,7 +62,6 @@ social-network-links:
 #  twitch: yourname
 #  yelp: yourname
 #  telegram: yourname
-#  calendly: yourname
 #  mastodon: instance.url/@username
 #  bluesky: yourname
 #  ORCID: your ORCID ID
@@ -91,8 +90,10 @@ navbar-links:
     - Boardgames: boardgames
     - Finance: finance
     - Magic: magic
+    - Parenting: parenting
     - Pinball: pinball
     - Snowboarding: snowboarding
+    - Volunteering: volunteering
     - Weightlifting: weightlifting
     - Retro Gaming: retro
 
