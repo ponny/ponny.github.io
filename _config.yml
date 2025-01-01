@@ -79,23 +79,23 @@ social-network-links:
 
 navbar-links:
   Hire Me: hire
-  My Projects:
-    - Gleam: gleam
-    - ServerBear: serverbear
-    - Thinng: thinng
-    - Couponzor: couponzor
-    - StoreCrowd: storecrowd
-  My Interests:
-    - (Audio) Books: books
-    - Boardgames: boardgames
-    - Finance: finance
-    - Magic: magic
-    - Parenting: parenting
-    - Pinball: pinball
-    - Snowboarding: snowboarding
-    - Volunteering: volunteering
-    - Weightlifting: weightlifting
-    - Retro Gaming: retro
+#  My Projects:
+#    - Gleam: gleam
+#    - ServerBear: serverbear
+#    - Thinng: thinng
+#    - Couponzor: couponzor
+#    - StoreCrowd: storecrowd
+#  My Interests:
+#    - (Audio) Books: books
+#    - Boardgames: boardgames
+#    - Finance: finance
+#    - Magic: magic
+#    - Parenting: parenting
+#    - Pinball: pinball
+#    - Snowboarding: snowboarding
+#    - Volunteering: volunteering
+#    - Weightlifting: weightlifting
+#    - Retro Gaming: retro
 
 # Exclude from processing.
 # The following items will not be processed, by default.
