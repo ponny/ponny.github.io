@@ -110,7 +110,7 @@ _- Michael Maher, CEO of OnePassport_
 
 <figure>
   <img src="/ponny-early-computer.jpg" alt="Ponny on a computer in the 80s"/>
-  <figcaption><em>On one of my first computers in the late 80s</em></figcaption> 
+  <figcaption><em>On one of my first computers in the early 90s</em></figcaption> 
 </figure>
 
 * Lifelong computer nerd
