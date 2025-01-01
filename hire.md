@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Hire Me
-subtitle: Tech founder on demand
+subtitle: CTO on demand
 ---
 
 ## Problems I solve
@@ -18,7 +18,11 @@ I have years of experience (as a developer, CTO, and technical founder) dealing 
 * Regression bugs (via automated testing)
 * Anything a founder has to deal with!
 
+---
+
 ### Pricing
+
+As a rule, I work in 'days'.  If you pay for a day, you get it exclusively.  I can be in an office or on a call the entire working day.
 
 | Price (AUD) | For:                                                   |
 |-------------|--------------------------------------------------------|
@@ -89,13 +93,13 @@ You can find someone cheaper than me who will be just as good at building an app
 
 If you want help _starting_ this process (i.e. foundations, architecture, hiring) and guide it over time, I would be good at that. 
 
-### If you need your printer fixed
-
-You can just follow [this delightful flow chart from XKCD](https://xkcd.com/627/) yourself 
-
 ### If you want a mobile app
 
 I predominantly develop apps for the web.  I'm interested in this mobile apps and have dabbled but you would be better off finding someone that's built successful apps previously.
+
+### If you need your printer fixed
+
+You can just follow [this delightful flow chart from XKCD](https://xkcd.com/627/) yourself 
 
 ---
 
@@ -104,7 +108,7 @@ I predominantly develop apps for the web.  I'm interested in this mobile apps an
 
 Being able to have the input of an experienced CTO without having to employ one full time as made a big difference to our growth. Hands on involvement with structure, and internal and external stakeholders, including sourcing new remote developers for the team.
 
-_- Michael Maher, CEO of OnePassport_
+_- Michael Maher, CEO of [OnePassport](https://onepassport.co/)_
 
 ## My history
 
@@ -125,6 +129,6 @@ _- Michael Maher, CEO of OnePassport_
 
 ---
 
-## Let's have a chat
+## Let's have a chat!
 
 Here's my [Calendly link](https://calendly.com/ponny/30min).  Book a time to see if it makes sense to work together!
