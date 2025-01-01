@@ -99,6 +99,13 @@ I predominantly develop apps for the web.  I'm interested in this mobile apps an
 
 ---
 
+
+## Testimonials
+
+Being able to have the input of an experienced CTO without having to employ one full time as made a big difference to our growth. Hands on involvement with structure, and internal and external stakeholders, including sourcing new remote developers for the team.
+
+_- Michael Maher, CEO of OnePassport_
+
 ## My history
 
 <figure>
