@@ -67,7 +67,9 @@ These embedded components were used by 10s of millions of users across thousands
 
 Fundamentally, putting your app into another page can have compatibility issues.  Putting that app into literally thousands of other pages means you're looking at huge numbers of potential issues.
 
-### I'm willing to hiring and firing people
+### I'm able to hire and fire people
+
+My network is quite extensive so I can source great people locally (Australia) and remotely.
 
 I've established playbooks for hiring people based on what the role actually looks like.  Once they've been hired, I've learned how to onboard people and make them productive fast.
 
