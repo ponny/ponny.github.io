@@ -33,7 +33,7 @@ As a rule, I work in 'days'.  If you pay for a day, you get it exclusively.  I c
 
 ## Why you should hire me
 
-### I've built real successful apps
+### I've built real, successful apps
 
 I've built a number of apps from the first commit to managing a team.  At [Gleam](https://gleam.io) I built out robust infrastructure that handled **millions of daily users** without a sweat and held **terabytes** of user data.  
 
