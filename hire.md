@@ -134,3 +134,7 @@ _- Michael Maher, CEO of [OnePassport](https://onepassport.co/)_
 ## Let's have a chat!
 
 Here's my [Calendly link](https://calendly.com/ponny/30min).  Book a time to see if it makes sense to work together!
+
+<hr>
+
+{% include email-subscribe.html %}
