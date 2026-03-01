@@ -11,7 +11,7 @@ I have years of experience (as a developer, CTO, and technical founder) dealing 
 * Development work 'taking forever' or 'getting nothing done'
 * Managing remote teams (including how to hire/fire/manage them)
 * Security uncertainty (compliance, pentests, costs, risks, bug bounty programs)
-* Building and consuming APIS
+* Building and consuming APIs
 * Lack of automation (internally and within your product) 
 * Understanding 3rd party integrations
 * Deciding on infrastructure (setting it up, managing it, reducing costs)
