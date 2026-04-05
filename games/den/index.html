@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Den – Sega Master System Roguelike</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #111;
+      color: #ddd;
+      font-family: 'Press Start 2P', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #e44;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+    }
+    .subtitle {
+      color: #fc5;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    #emulator-container {
+      width: 768px;
+      height: 576px;
+      max-width: 100%;
+      aspect-ratio: 4/3;
+      background: #000;
+      border: 3px solid #555;
+      border-radius: 0;
+      position: relative;
+    }
+    #emulator-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .controls {
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .control-group {
+      background: #000;
+      border: 2px solid #555;
+      border-radius: 0;
+      padding: 1rem 1.5rem;
+    }
+    .control-group h3 {
+      color: #e44;
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .control-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.25rem 0;
+    }
+    kbd {
+      background: #1a1a1a;
+      border: 2px solid #555;
+      border-radius: 0;
+      padding: 0.15rem 0.5rem;
+      font-family: inherit;
+      font-size: 0.8rem;
+      color: #fff;
+      min-width: 2rem;
+      text-align: center;
+      display: inline-block;
+    }
+    .control-label {
+      color: #5f5;
+      font-size: 0.8rem;
+    }
+    .note {
+      color: #5bf;
+      font-size: 0.75rem;
+      line-height: 2;
+      margin-top: 1.5rem;
+      text-align: center;
+      max-width: 768px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Den</h1>
+  <p class="subtitle">A Sega Master System Roguelike</p>
+
+  <p class="note" style="margin-bottom: 1.5rem;">
+    Proof of concept game vibe-coded in Z80 Assembly using Claude Opus 4.6.
+    Graphics and sound also nearly all AI generated (for now).
+    To play, pick your race, starting items, and then take the staircase down.
+    On the 5th level is the boss - the honey badger.
+  </p>
+
+  <div class="controls" style="margin-bottom: 1.5rem;">
+    <div class="control-group" style="display: flex; align-items: center; gap: 2rem; width: 768px; max-width: 100%;">
+      <h3 style="margin: 0;">Controls</h3>
+      <div class="control-row"><kbd>ARROWS</kbd> <span class="control-label">Move</span></div>
+      <div class="control-row"><kbd>A</kbd> <span class="control-label">Menu / Confirm</span></div>
+      <div class="control-row"><kbd>S</kbd> <span class="control-label">Wait / Cancel</span></div>
+    </div>
+  </div>
+
+  <div id="emulator-container">
+    <div id="game"></div>
+  </div>
+
+  <p class="note">
+    Copyright John "Ponny" Sherwood.
+    Powered by <a href="https://emulatorjs.org" style="color:#888;">EmulatorJS</a>.
+  </p>
+
+  <script>
+    var EJS_player = '#game';
+    var EJS_core = 'segaMS';
+    var EJS_gameUrl = 'den-8244521c314d157de97d2c82f1b5cddc.sms';
+    var EJS_language = 'en-US';
+    var EJS_alignStartButton = 'center';
+    var EJS_defaultControls = {
+      0: {
+        0: { 'value': 'a', 'value2': 'BUTTON_2' },
+        1: { 'value': '', 'value2': 'BUTTON_4' },
+        2: { 'value': 'v', 'value2': 'SELECT' },
+        3: { 'value': 'enter', 'value2': 'START' },
+        4: { 'value': 'up arrow', 'value2': 'DPAD_UP' },
+        5: { 'value': 'down arrow', 'value2': 'DPAD_DOWN' },
+        6: { 'value': 'left arrow', 'value2': 'DPAD_LEFT' },
+        7: { 'value': 'right arrow', 'value2': 'DPAD_RIGHT' },
+        8: { 'value': 's', 'value2': 'BUTTON_1' },
+        9: { 'value': '', 'value2': 'BUTTON_3' },
+        10: { 'value': '', 'value2': 'LEFT_TOP_SHOULDER' },
+        11: { 'value': '', 'value2': 'RIGHT_TOP_SHOULDER' },
+        12: { 'value': '', 'value2': 'LEFT_BOTTOM_SHOULDER' },
+        13: { 'value': '', 'value2': 'RIGHT_BOTTOM_SHOULDER' },
+        14: { 'value': '', 'value2': 'LEFT_STICK' },
+        15: { 'value': '', 'value2': 'RIGHT_STICK' },
+        16: { 'value': '', 'value2': 'LEFT_STICK_X:+1' },
+        17: { 'value': '', 'value2': 'LEFT_STICK_X:-1' },
+        18: { 'value': '', 'value2': 'LEFT_STICK_Y:+1' },
+        19: { 'value': '', 'value2': 'LEFT_STICK_Y:-1' },
+        20: { 'value': '', 'value2': 'RIGHT_STICK_X:+1' },
+        21: { 'value': '', 'value2': 'RIGHT_STICK_X:-1' },
+        22: { 'value': '', 'value2': 'RIGHT_STICK_Y:+1' },
+        23: { 'value': '', 'value2': 'RIGHT_STICK_Y:-1' },
+        24: {}, 25: {}, 26: {}, 27: {}, 28: {}, 29: {}
+      },
+      1: {}, 2: {}, 3: {}
+    };
+    var EJS_pathtodata = 'data/';
+  </script>
+  <script src="data/loader.js"></script>
+</body>
+</html>
