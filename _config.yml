@@ -27,6 +27,17 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ponny.dev" # the base hostname & protocol for your site, e.g. http://example.com
 avatar: "/ponny-simpsons.png"
 
+# Colours
+navbar-col: "#2e8b57"
+navbar-text-col: "#ffffff"
+navbar-border-col: "#25704a"
+link-col: "#257a4b"
+hover-col: "#1c5e3a"
+footer-col: "#2e8b57"
+footer-text-col: "#ffffff"
+footer-link-col: "#ffffff"
+footer-hover-col: "#d8f0e2"
+
 # Extra site-wide CSS
 site-css:
   - "/assets/css/custom.css"
