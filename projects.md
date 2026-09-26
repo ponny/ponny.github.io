@@ -54,15 +54,6 @@ subtitle: Things I've built
 </div>
 
 <div class="project">
-  <span class="project-logo dark"><img src="/images/projects/serverbear.png" alt="ServerBear"></span>
-  <div class="project-body">
-    <h3>ServerBear</h3>
-    <p>Web hosting benchmarks and coupons, so you could see how a VPS actually performed before paying for it.</p>
-    <a class="project-screenshot" href="/images/projects/screenshots/serverbear.jpg" target="_blank" rel="noopener"><img src="/images/projects/screenshots/serverbear.jpg" alt="Screenshot of ServerBear" loading="lazy"></a>
-  </div>
-</div>
-
-<div class="project">
   <span class="project-logo dark"><img src="/images/projects/storecrowd.png" alt="StoreCrowd"></span>
   <div class="project-body">
     <h3>StoreCrowd</h3>
@@ -86,6 +77,15 @@ subtitle: Things I've built
     <h3>Thinng</h3>
     <p>A Pinterest clone.</p>
     <a class="project-screenshot" href="/images/projects/screenshots/thinng.jpg" target="_blank" rel="noopener"><img src="/images/projects/screenshots/thinng.jpg" alt="Screenshot of Thinng" loading="lazy"></a>
+  </div>
+</div>
+
+<div class="project">
+  <span class="project-logo dark"><img src="/images/projects/serverbear.png" alt="ServerBear"></span>
+  <div class="project-body">
+    <h3>ServerBear</h3>
+    <p>Web hosting benchmarks and coupons, so you could see how a VPS actually performed before paying for it.</p>
+    <a class="project-screenshot" href="/images/projects/screenshots/serverbear.jpg" target="_blank" rel="noopener"><img src="/images/projects/screenshots/serverbear.jpg" alt="Screenshot of ServerBear" loading="lazy"></a>
   </div>
 </div>
 
