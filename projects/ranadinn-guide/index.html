@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ranadinn guide</title>
+<meta name="description" content="Complete maps, item locations and a guide for Ranadinn (1988), Jeff Mather's shareware CRPG, extracted from the game's data files.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1><a href="#world">Ranadinn guide</a></h1>
+  <nav>
+    <a href="#world" data-nav="world">World</a>
+    <a href="#area=1" data-nav="area">Map viewer</a>
+    <a href="#guide" data-nav="guide">Walkthrough</a>
+    <a href="#legend" data-nav="legend">Legend</a>
+  </nav>
+  <div class="spacer"></div>
+  <label class="ctl">Colours
+    <select id="palette"></select>
+  </label>
+</header>
+
+<main id="page-world" class="page">
+  <section class="intro">
+    <p class="disclaimer">Ranadinn, its maps, artwork and text are © 1988 Jeff Mather. This is a fan guide: the maps and
+    data here were extracted from the game's files and program with the help of Claude (Anthropic's AI), not typed up by hand.</p>
+    <p>Ranadinn (1988) is a shareware Ultima-style RPG by Jeff Mather. You are the Ranadinn, a mercenary
+    fighter who can also cast spells from scrolls, hired by King Gregory of Argentan to stop the Dark Mage
+    Mordanneus. The kingdom is four islands; the fourth has already fallen. Every map below was decoded
+    straight from the game's data files, so nothing is missing — including the caves you would otherwise
+    need torches to see.</p>
+  </section>
+  <div id="world-islands" class="islands"></div>
+</main>
+
+<main id="page-area" class="page">
+  <aside class="sidebar">
+    <input id="area-search" type="search" placeholder="Find an area…" autocomplete="off">
+    <div id="area-list"></div>
+  </aside>
+  <section class="viewer">
+    <div class="toolbar">
+      <h2 id="area-title"></h2>
+      <div class="tools">
+        <button id="zoom-out" title="Zoom out">−</button>
+        <span id="zoom-label">100%</span>
+        <button id="zoom-in" title="Zoom in">+</button>
+        <label><input type="checkbox" id="ov-links" checked> exits</label>
+        <label><input type="checkbox" id="ov-items" checked> items</label>
+        <label><input type="checkbox" id="ov-signs" checked> signs</label>
+        <label><input type="checkbox" id="ov-creatures"> creatures</label>
+        <label><input type="checkbox" id="ov-grid"> grid</label>
+        <label><input type="checkbox" id="ov-pass"> walkable</label>
+        <a id="png-link" href="#" download>PNG</a>
+      </div>
+    </div>
+    <div class="map-scroll" id="map-scroll">
+      <div class="map-stack" id="map-stack">
+        <canvas id="map"></canvas>
+        <canvas id="overlay"></canvas>
+      </div>
+      <div class="tooltip" id="tooltip"></div>
+    </div>
+  </section>
+  <aside class="info" id="area-info"></aside>
+</main>
+
+<main id="page-guide" class="page prose">
+  <h2>Walkthrough &amp; guide</h2>
+  <p class="toc">
+    <a href="#guide&s=story">Story</a> · <a href="#guide&s=start">Getting started</a> · <a href="#guide&s=crown">Crown pieces</a> · <a href="#guide&s=rules">How the game works</a> ·
+    <a href="#guide&s=route">Suggested route</a> · <a href="#guide&s=world">Islands</a> · <a href="#guide&s=bestiary">Bestiary</a> · <a href="#guide&s=stats">Stats</a> · <a href="#guide&s=items">Items</a> ·
+    <a href="#guide&s=spells">Scrolls</a> · <a href="#guide&s=shops">Shops</a> · <a href="#guide&s=areas">Area by area</a> ·
+    <a href="#guide&s=itemlocs">Item locations</a> · <a href="#guide&s=signs">Signs</a> · <a href="#guide&s=rumours">Rumours</a> ·
+    <a href="#guide&s=ending">Ending</a> · <a href="#guide&s=how">How this was made</a>
+  </p>
+
+  <h3 id="s-story">The story in short</h3>
+  <p>You are the Ranadinn — a mercenary fighter raised by the wizard-cleric Osnenemus, able to cast both clerical and
+  sorceral spells from scrolls. Hired by King Gregory of the island kingdom of Argentan, you must stop the Dark Mage:
+  an old magician who found the disembodied, still-living hand of the ancient wizard Mordanneus and let it take him
+  over. His hordes have conquered the southern seas and the fourth island of Argentan, where he is building a temple
+  as his headquarters. The king's spies say his essence is bound into an onyx crown and sceptre.</p>
+  <p><strong>What the game actually checks:</strong> the crown and sceptre are real. Fifteen fragments of the onyx crown
+  lie scattered through the castles, towers and caves of all four islands, and the sceptre stands in the
+  <a href="#area=30&x=50&y=31">temple on island 4</a>. Each must be destroyed with a <em>Crumble</em> scroll, in any order. When
+  all sixteen are gone the game ends with the victory text. Killing the Dark Mage himself is optional (and nearly impossible).</p>
+
+  <h3 id="s-start">Getting started</h3>
+  <ul>
+    <li>You begin on <a href="#area=1&x=28&y=42">Island 1 at (28,42)</a>, just south of the gate of King Gregory's
+    castle, <a href="#area=5">The Inishtrahull</a>. Level 3, 400 EXP, all six stats 13, 21 HP, 200 gold, 20 rations,
+    5 torches, no weapon, no armour.</li>
+    <li>If the screen is black, press <kbd>C</kbd> to cycle the colour set. <kbd>?</kbd> shows the command list.</li>
+    <li>The game writes your position and every map change to disk each time you enter or leave an area. Play from a copy
+    of the game folder and keep a spare copy — there is no other save system.</li>
+    <li>Shopping first: <a href="#area=13">Renelence Bay</a> at (17,38), a short walk west along the coast, sells
+    swords, plate mail, food, clerical scrolls and — uniquely in the whole kingdom — <strong>torches</strong>.
+    <a href="#area=14">Malvern</a> at (51,27) to the north-east sells weapons, armour, gems and sorceral scrolls.</li>
+    <li>Talk to people with <kbd>Return</kbd> while facing them. Merchants sell; everyone else tells you one of their
+    town's seven rumours (listed below, no need to hunt for them).</li>
+    <li>Each island has one <em>teleporter</em> gate. Step on it and answer 1–4 to jump to that island. You arrive on the
+    destination island's gate.</li>
+  </ul>
+
+  <h3 id="s-crown">The onyx crown and sceptre</h3>
+  <p>Stand next to a fragment, use a <em>Crumble</em> scroll and target it. The game beeps, the fragment vanishes and a
+  hidden counter (it starts at 16 in <code>PS.RAN</code>) goes down. Three things to know:</p>
+  <ul>
+    <li><strong>Crumble needs Intelligence 18.</strong> You start at 13. Red wizard's stones give +1 each; there are seven,
+    so you need five of them (fountains can also raise Intelligence — or lower it). Nothing else in the game raises a stat.</li>
+    <li><strong>You need sixteen Crumble scrolls.</strong> Four are lying in the world; the rest must be bought from the
+    sorceral scroll dealers listed under <a href="#guide&s=shops">Shops</a>. Buy them early.</li>
+    <li><strong>When two remain, the Dark Mage razes the kingdom.</strong> The game prints "Please wait…" and rewrites
+    the maps: all eight towns lose their buildings, furniture, shops and people (the townsfolk are replaced by
+    creatures 11 and 16), and on the islands every town, village and castle turns to ruins. The castles' interiors,
+    the towers and the caves — where the fragments are — are untouched. So before you destroy the fourteenth fragment,
+    buy every scroll, torch and ration you will ever need, and sell your gems.</li>
+  </ul>
+  <p>Fragment locations (click to open the map on the spot):</p>
+  <div id="guide-crown"></div>
+
+  <h3 id="s-rules">How the game works (from the code)</h3>
+  <h4>Fighting</h4>
+  <ul>
+    <li><strong>Your attack:</strong> you hit when a d20 roll is at least <em>21 − level − weapon bonus</em>, modified by the
+    creature's defence value (see bestiary; the Dark Mage's −10 makes him very hard to hit). Damage is 1 to the weapon's
+    maximum, plus <em>Strength − 14</em> if your Strength is above 14.</li>
+    <li><strong>Their attack:</strong> creatures roll against your armour value: plate mail 3, +1 mail 2, +2 mail 1,
+    +3 mail 0, no armour 10; a large shield lowers it by 1/2/3 more, and Coordination above 14 lowers it further.
+    Creature damage is 1 to their listed maximum.</li>
+    <li><strong>Ranged:</strong> with a bow equipped, <kbd>R</kbd> then move the cursor onto the target. Four creatures attack at range
+    (08, 12, 19 and 1B); everything else must reach you.</li>
+    <li><strong>Experience:</strong> each kill gives the XP in the bestiary. A level is 200 EXP; you start at level 3.
+    Higher level = better to-hit and more HP.</li>
+  </ul>
+  <h4>Hazards</h4>
+  <ul>
+    <li><strong>Darkness:</strong> caves, dungeons and towers are unlit. You start with 5 torches; light one with
+    <kbd>I</kbd>. Buy more from the torch dealer in Renelence Bay (the only one). <em>Flame-light</em> and
+    <em>Illuminance</em> scrolls do the same job. With these maps you can walk dark corridors blind if you must.</li>
+    <li><strong>Status effects</strong>, all from creature hits (see the bestiary's Special column):
+      <em>poison</em> (creature 12, or a bad potion — 1 in 10) costs 1 HP every turn until <em>Cancel Poison</em>;
+      <em>disease</em> (creatures 17 and 18, "the bite of a rat or bat") costs 1 Endurance on one turn in ten until
+      <em>Excise Disease</em>; a <em>curse</em> (creature 16) makes every monster hit automatically and gives your attacks −20
+      until <em>Detach Curse</em>; creature 05 <em>paralyses</em> you for five turns per hit; creature 15 drains 200 EXP —
+      a whole level — per hit.</li>
+    <li><strong>Traps</strong>: tile 0x50 is trapped floor ("You have fallen into a pit trap") and 0x6C is a trapped chest, as
+    opposed to a plain chest (0x5C); both are marked on the maps. <em>Nullify Traps</em> turns every trapped floor in view
+    into plain floor and every trapped chest into a plain chest.</li>
+    <li><strong>Teleport pads</strong> come in pairs inside castles and towers: step on one and you appear on the other.
+    They are marked on the maps.</li>
+    <li><strong>Fountains:</strong> drinking is a coin toss. Fresh water gives +1 to a random stat, +200 EXP or +10 HP;
+    foul water takes the same away. Save-scum by copying the folder if you want the bonuses.</li>
+    <li><strong>Food:</strong> rations tick down as you walk; buy them from any food dealer or cast <em>Produce Food</em>.</li>
+    <li><strong>Secret doors</strong> are drawn with a subtly different brick pattern; the map viewer's <em>walkable</em>
+    overlay paints them red. The top level of the tower on island 3 is a maze of 193 of them.</li>
+    <li><strong>Doors and locked doors</strong> are the lattice tiles: 0x91 is a door you can walk through, 0x92 is locked
+    (marked on the maps). A key opens one (14 lie around, see item locations); the <em>Unlock</em> scroll opens every locked door
+    in view.</li>
+    <li><strong>Secret doors</strong> also exist in caves: tile 0x93 looks like cave wall but can be walked through, just as
+    0x9A looks like brick. The <em>walkable</em> overlay shows both.</li>
+  </ul>
+
+  <h3 id="s-route">Suggested route</h3>
+  <p>Creatures are referred to by their tile number; see the <a href="#guide&s=bestiary">bestiary</a> for their pictures and
+  statistics.</p>
+  <ol>
+    <li><strong>Island 1 — equip and level.</strong> Renelence Bay for a sword, plate mail, torches and healing scrolls;
+    Malvern for sorceral scrolls (Crumble is there when you can afford it). Then clear the island's caves, easiest first:
+    <a href="#area=33">cave 3</a> at (6,49) (33 × creature 10), <a href="#area=35">cave 5</a> at (48,45) (45 × creature 09),
+    <a href="#area=34">cave 4</a> at (28,7) (creatures 05 and 0B), <a href="#area=31">cave 1</a> at (15,55) (43 × creature 0B, and
+    a red stone at (13,4)) and <a href="#area=32">cave 2</a> at (12,12) (creature 07 in numbers, a few 14 and one 0E; a pink
+    stone). The <a href="#area=5">Inishtrahull</a> has a throne room and the king upstairs but nothing you need. Aim for
+    level 6–8 and +1 gear before leaving.</li>
+    <li><strong>Island 2.</strong> Towns: <a href="#area=15">Hereford</a> (47,55) — four sorceral scroll dealers —
+    <a href="#area=16">Brecon</a> (6,10) and <a href="#area=17">Kilmarnock</a> (35,36). The
+    <a href="#area=7">castle</a> at (30,12) has six chests, a teleport-pad pair, thirteen secret doors and a crown fragment on its upper floor.
+    The <a href="#area=21">tower</a> at (51,36) is three levels (creatures 12, 04, 08, 0C, 14 and 19) with chests, teleport pads,
+    a fountain, a Crumble scroll, a red stone and a fragment. Six of the seven caves here hold a fragment; cave 7
+    at (26,8) has two red stones.</li>
+    <li><strong>Island 3.</strong> Towns: <a href="#area=18">Scunthorpe</a> (23,16),
+    <a href="#area=19">Wrexham</a> (9,51) and <a href="#area=20">Falmouth</a> (55,31). The
+    <a href="#area=24">tower</a> at (48,13) is 32 × creature 19 on level 1, creatures 04 and 0E on level 2 and a
+    193-secret-door maze of creature 04 on level 3 with a fragment at the end. Four of creature 03 — the toughest thing outside
+    island 4 — guard <a href="#area=48">cave 18</a> at (42,31): two Crumble scrolls, a yellow stone and a fragment. Six more
+    fragments are in the island's caves.</li>
+    <li><strong>Island 4.</strong> Everything here is hostile. <a href="#area=54">Cave 24</a> at (35,26) is a
+    literal gold mine (54 piles of gold) — grab it. The <a href="#area=9">castle</a> at (34,49) has a fragment on its upper
+    floor amid chests and fountains, the <a href="#area=27">tower</a> at (35,39) has one on its third level, and
+    <a href="#area=55">cave 25</a> at (49,45) has one under 69 × creature 11. Note the magic warp at (36,48), which drops you at (34,48).</li>
+    <li><strong>The last two.</strong> Once fourteen fragments are gone the kingdom is razed, so make the temple sceptre and one
+    fragment your final pair. Enter the <a href="#area=30">temple</a> at (58,49): creatures 05, 11, 15 and 16 in numbers, and the
+    Dark Mage himself (20 hit dice, hits for up to 50, defence −10 — avoid it; <em>Invisibility</em> helps). The sceptre
+    stands at (50,31). Crumble it and the last fragment, and the ending plays.</li>
+  </ol>
+
+  <h3 id="s-world">The islands at a glance</h3>
+  <div id="guide-world"></div>
+
+  <h3 id="s-bestiary">Bestiary</h3>
+  <p>The game never names its monsters, so they are listed by tile number with their picture. The numbers are exact,
+  read from the program: hit dice (HP = HD × d8), maximum damage per hit, defence (added to your to-hit roll — lower is
+  harder), attack bonus, XP for a kill, any special ability, and everywhere each creature appears at the start of the game.
+  The townsfolk's rumours mention kobolds, goblins, orcs, gnolls, hobgoblins, bugbears, ogres, ettins, minotaurs,
+  spiders, bats, rats, wolves, serpents, troglodyte javelinmen, the undead and evil apprentice magi, but the program
+  never ties those words to a picture.</p>
+  <div id="guide-bestiary"></div>
+
+  <h3 id="s-stats">Statistics — what each one does</h3>
+  <p>All six start at 13. Only wizard's stones (+1 each, to 18) and fountains change them. Read from the program:</p>
+  <table>
+    <tr><th>Stat</th><th>Effect</th></tr>
+    <tr><td>Strength</td><td>Every point above 14 adds +1 damage to each hit, sword or bow.</td></tr>
+    <tr><td>Intelligence</td><td>Gates sorceral scrolls: each needs 13–18 (Crumble needs 18). Nothing else.</td></tr>
+    <tr><td>Wisdom</td><td>Gates clerical scrolls: each needs 13–18 (Complete Heal and Wall of Blades need 18). Nothing else.</td></tr>
+    <tr><td>Endurance</td><td>Maximum HP is 7 × level, plus (Endurance − 14) × level if Endurance is above 14 — recomputed at each
+      level-up. Disease slowly eats Endurance.</td></tr>
+    <tr><td>Coordination</td><td>Every point above 14 lowers the number monsters need to hit you by 1, and adds +1 damage with a bow.</td></tr>
+    <tr><td>Personality</td><td>Shop prices. Each point above 13 makes what you buy about 15% cheaper and what you sell about 15% dearer
+      (selling starts at half the list price).</td></tr>
+  </table>
+  <p>Level = 1 + EXP ÷ 200. Each level raises your to-hit roll by one and your maximum HP by 7 (more with high Endurance),
+  and refills your HP.</p>
+
+  <h3 id="s-items">Items</h3>
+  <h4>Weapons</h4>
+  <p>Only swords and bows can be used. Magic bonuses add to your to-hit roll and are already counted in the damage below.</p>
+  <div id="guide-weapons"></div>
+  <h4>Armour and shields</h4>
+  <p>Lower is better: the value is what a creature's attack roll is measured against.</p>
+  <div id="guide-armor"></div>
+  <h4>Potions</h4>
+  <table>
+    <tr><td>Healing</td><td>Restores 1–13 HP · 400 gp</td></tr>
+    <tr><td>Extra Healing</td><td>Restores 1–32 HP · 800 gp</td></tr>
+    <tr><td colspan="2">One potion in ten is poisoned instead ("This potion was POISONED!").</td></tr>
+  </table>
+  <h4>Wizard's stones</h4>
+  <p>The mystical stones the rumours mention are real and worth hunting (and worth 5000 gp each if sold). Using one
+  raises a statistic by one point (to a maximum of 18):</p>
+  <table>
+    <tr><th>Stone</th><th>Effect</th></tr>
+    <tr><td>blue</td><td>+1 Strength</td></tr>
+    <tr><td>red</td><td>+1 Intelligence</td></tr>
+    <tr><td>pink</td><td>+1 Wisdom</td></tr>
+    <tr><td>green</td><td>+1 Endurance</td></tr>
+    <tr><td>yellow</td><td>+1 Coordination</td></tr>
+    <tr><td>white</td><td>+1 Personality</td></tr>
+    <tr><td>black</td><td>+200 EXP (one level)</td></tr>
+  </table>
+  <h4>Gems and jewelry</h4>
+  <p>They are money — sell them to the gem and jewelry dealers for half the list price (more with high Personality).
+  List prices: azurite 10, carnelian 50, coral 100, topaz 500, opal 1000, diamond 5000; silver 550, gold 700,
+  platinum 1050, silver &amp; gems 3500, gold &amp; gems 5000, platinum &amp; gems 7000.</p>
+  <h4>Other</h4>
+  <table>
+    <tr><td>Torches</td><td>Light for dark areas. Sold only in Renelence Bay.</td></tr>
+    <tr><td>Rations</td><td>Food. Sold by food dealers in every town.</td></tr>
+    <tr><td>Keys</td><td>Open locked doors. 14 lie around the caves and towers.</td></tr>
+    <tr><td>Chests</td><td>Random treasure. Trapped chests (0x6C) and plain ones (0x5C) look alike apart from the lid.</td></tr>
+    <tr><td>Food</td><td>Rations lying on the floor (0x6F) add to your food.</td></tr>
+    <tr><td>Gold piles / coins</td><td>Walk over them to collect.</td></tr>
+  </table>
+
+  <h3 id="s-spells">Scrolls</h3>
+  <p>Scrolls are single-use. Clerical scrolls need the listed <em>Wisdom</em>, sorceral scrolls the listed
+  <em>Intelligence</em>; otherwise "You do not have the wisdom/intelligence to cast this spell."</p>
+  <div id="guide-spells"></div>
+  <p id="guide-scrollshops"></p>
+
+  <h3 id="s-shops">Shops</h3>
+  <p>Every merchant in the kingdom, with what they stock. Food dealers everywhere sell rations; the shop signs in each
+  town tell you which building is which.</p>
+  <div id="guide-shops"></div>
+
+  <h3 id="s-areas">Area by area</h3>
+  <p>Exits, contents and the monster roster of every place, straight from the map data. Coordinates are (x,y) from
+  the top-left; click any to open the map there.</p>
+  <div id="guide-areas"></div>
+
+  <h3 id="s-itemlocs">Item locations</h3>
+  <p>Everything lying on the ground at the start of a fresh game.</p>
+  <div id="guide-items"></div>
+
+  <h3 id="s-signs">Signs</h3>
+  <div id="guide-signs"></div>
+
+  <h3 id="s-rumours">Rumours by town</h3>
+  <p>Townsfolk each repeat one of seven lines. The blocks appear in the game text in town order; the greeting in each
+  block names the town, which is how the towns on the maps got their names.</p>
+  <div id="guide-rumours"></div>
+
+  <h3 id="s-ending">The ending</h3>
+  <p>The game keeps a counter that starts at 16 and goes down by one for every fragment or sceptre you Crumble, in any
+  order. When it reaches zero the game plays a fanfare, shows the epilogue page, then drops to DOS with its farewell. Captured from the real program by jumping a patched copy straight into the ending routine:</p>
+  <div class="ending" id="ending-shots"></div>
+  <p>If you die instead, the game offers a "time reversal" that restores the areas and puts you back at the start.</p>
+
+  <h3 id="s-how">How this was made</h3>
+  <p>The maps come from <code>A.RAN</code> (60 areas of 60×60 tiles, one byte per tile, stored column-major), the artwork
+  from <code>P.RAN</code> (155 sprites of 24×15 pixels in Turbo Pascal <code>GetPic</code> format), item names from
+  <code>S.RAN</code>, dialogue and signs from <code>T.RAN</code>, and the starting position from <code>PS.RAN</code>.
+  Area links, creature statistics, combat rules, shop stock and item effects were read out of a disassembly of
+  <code>RANADINN.COM</code>. See <code>tools/extract.py</code> in the repository.</p>
+</main>
+
+<main id="page-legend" class="page prose">
+  <h2>Legend</h2>
+  <p>Every sprite in <code>P.RAN</code>, with the tile byte that draws it. Only tiles whose meaning the program
+  establishes are named; the rest are decoration, marked walkable or not according to the game's movement table.</p>
+  <div id="legend-grid" class="legend"></div>
+</main>
+
+<script>window.RANADINN_ENDING=["ending1.png","ending2.png"];</script>
+<script src="data/meta.js"></script>
+<script src="data/areas.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
