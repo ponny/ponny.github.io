@@ -18,7 +18,7 @@ subtitle: Things I've built
 <div class="project">
   <a class="project-logo dark" href="/games/den/"><img src="/images/projects/den.png" alt="Den title screen"></a>
   <div class="project-body">
-    <h3><a href="/games/den/">Den</a> <span class="project-years">2026</span></h3>
+    <h3><a href="/games/den/">Den</a> <span class="project-years">2025–present</span></h3>
     <p>A roguelike for the Sega Master System, vibe-coded in Z80 assembly and playable right in your browser.  I wrote about how it came together <a href="https://www.linkedin.com/feed/update/urn:li:activity:7446572183805628416/">on LinkedIn</a>.</p>
     <a class="project-screenshot" href="/images/projects/screenshots/den.jpg" target="_blank" rel="noopener"><img src="/images/projects/screenshots/den.jpg" alt="Screenshot of Den" loading="lazy"></a>
   </div>
