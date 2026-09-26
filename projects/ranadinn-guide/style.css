@@ -103,3 +103,11 @@ select, input[type=search] { background: var(--panel2); color: var(--text); bord
 .prose .num { text-align: right; font-variant-numeric: tabular-nums; }
 .ending img { width: 100%; max-width: 760px; display: block; margin: 10px 0; border: 1px solid var(--border); border-radius: 4px; image-rendering: pixelated; }
 .disclaimer { color: var(--muted); font-size: 13px; border-left: 3px solid var(--border); padding: 6px 10px; margin: 0 0 14px; }
+
+header.top h1 .hero {
+  height: 1.35em;
+  width: auto;
+  vertical-align: -0.28em;
+  margin-right: 0.15em;
+  image-rendering: pixelated;
+}

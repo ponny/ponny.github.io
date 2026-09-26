@@ -127,3 +127,17 @@ footer .copyright,
 footer .theme-by {
   color: rgba(255, 255, 255, 0.85) !important;
 }
+
+/* --- Project years + pixel logos --- */
+.project-years {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #888;
+  margin-left: 0.4rem;
+  white-space: nowrap;
+}
+.project-logo img.pixel {
+  image-rendering: pixelated;
+  max-height: 60px;
+}
