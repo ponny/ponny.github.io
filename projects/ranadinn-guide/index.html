@@ -32,9 +32,9 @@
     Mordanneus. The kingdom is four islands; the fourth has already fallen. Every map below was decoded
     straight from the game's data files, so nothing is missing — including the caves you would otherwise
     need torches to see.</p>
-    <p class="pitch">Want to play it? The original 1.0 program <strong>cannot be finished</strong>: destroying any piece of the onyx
-    crown quits the game to DOS. This site offers a fixed build. <a href="#download">Download Ranadinn 1.0.1</a> (91&nbsp;KB, runs in
-    DOSBox).</p>
+    <p class="pitch">Want to play it? The original 1.0 release <strong>cannot be finished</strong>: destroying any piece of the onyx
+    crown quits the game to DOS, and one piece is walled in. This site offers a fixed build. <a href="#download">Download Ranadinn
+    1.0.1</a> (92&nbsp;KB, runs in DOSBox).</p>
   </section>
   <div id="world-islands" class="islands"></div>
 </main>
@@ -124,6 +124,9 @@
     the towers and the caves — where the fragments are — are untouched. So before you destroy the fourteenth fragment,
     buy every scroll, torch and ration you will ever need, and sell your gems.</li>
   </ul>
+  <p>In the original 1.0 maps the fragment in <a href="#area=36&x=8&y=18">cave 6</a> is sealed behind water and rock and cannot be
+  reached at all; the <a href="#download">1.0.1 download</a> opens a causeway across the cave's southern lake, and the map here shows
+  that version.</p>
   <p>Fragment locations (click to open the map on the spot):</p>
   <div id="guide-crown"></div>
 
@@ -314,20 +317,28 @@
 
 <main id="page-download" class="page prose">
   <h2>Download Ranadinn 1.0.1</h2>
-  <p class="download"><a class="button" href="ranadinn-1.0.1.zip" download>&#11015; ranadinn-1.0.1.zip</a> <span class="co">91 KB &middot; MS-DOS &middot; runs in DOSBox</span></p>
+  <p class="download"><a class="button" href="ranadinn-1.0.1.zip" download>&#11015; ranadinn-1.0.1.zip</a> <span class="co">92 KB &middot; MS-DOS &middot; runs in DOSBox</span></p>
   <h3>Why you want this rather than the original</h3>
-  <p>The 1988 shareware release (version 1.0, PC-SIG disk 1350) has a bug that makes the game impossible to finish. The quest is to
-  destroy the fifteen fragments of the onyx crown and the sceptre with <em>Crumble</em> scrolls, but using Crumble on any of them,
-  not just the last, prints the victory farewell and drops you straight to DOS, as if the game had crashed. The code that
-  should remove the fragment and carry on is there in the program, but it is skipped, and because the game exits before it saves,
-  the hidden piece counter never goes down either. You can play for hours and then lose at the first fragment.</p>
+  <p>The 1988 shareware release (version 1.0, PC-SIG disk 1350) has two bugs that each make the game impossible to finish. The quest
+  is to destroy the fifteen fragments of the onyx crown and the sceptre with <em>Crumble</em> scrolls.</p>
+  <ul>
+    <li><strong>Crumble ends the game.</strong> Using Crumble on any fragment, not just the last, prints the victory farewell and drops
+    you straight to DOS, as if the game had crashed. The code that should remove the fragment and carry on is there in the program,
+    but it is skipped, and because the game exits before it saves, the hidden piece counter never goes down either.</li>
+    <li><strong>One fragment is walled in.</strong> The fragment in <a href="#area=36&x=8&y=18">cave 6 on island 2</a> lies in a part of
+    the cave sealed off by rock and water. Nothing in the game removes cave wall or water, and Crumble only reaches five tiles, so
+    that fragment could never be destroyed.</li>
+  </ul>
   <h3>What 1.0.1 changes</h3>
   <ul>
     <li>Two bytes of <code>RANADINN.COM</code>: destroying a fragment now continues the game. The kingdom is still razed when two
     pieces remain, and the ending still plays when the last one goes.</li>
+    <li>Four bytes of <code>A.RAN</code>: in cave 6, the water at <a href="#area=36&x=34&y=52">(33,53), (34,53), (34,52) and (35,52)</a>
+    is now plains, a diagonal causeway across the southern lake to the fragment's side. The maps on this site show the fixed cave.</li>
     <li>The title screen reads "IBM PC Version 1.0.1" so the two builds can be told apart.</li>
-    <li>Nothing else. Every other file is the original shareware distribution, and maps and saves from a 1.0 game
-    (<code>A.RAN</code>, <code>PS.RAN</code>) work unchanged. If you are mid-game, just replace <code>RANADINN.COM</code>.</li>
+    <li>Nothing else. Every other file is the original shareware distribution, and a save from a 1.0 game (<code>PS.RAN</code>) works
+    unchanged. If you are mid-game, replace <code>RANADINN.COM</code> and <code>A.RAN</code>; <code>A.RAN</code> also holds the current
+    state of every area, so replacing it resets chests and creatures to their start.</li>
   </ul>
   <h3>Running it</h3>
   <p>Unzip into a folder and run <code>RANADINN</code> under <a href="https://www.dosbox.com/">DOSBox</a> or DOSBox-X. The game
