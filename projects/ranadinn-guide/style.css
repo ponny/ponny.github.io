@@ -111,3 +111,8 @@ header.top h1 .hero {
   margin-right: 0.15em;
   image-rendering: pixelated;
 }
+
+.intro .pitch { color: var(--text); }
+.download { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 12px 0 20px; }
+.download .button { display: inline-block; background: var(--accent); color: #000; font-weight: 600; padding: 8px 14px; border-radius: 6px; text-decoration: none; }
+.download .button:hover { filter: brightness(1.1); }

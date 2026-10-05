@@ -119,7 +119,7 @@
   function route() {
     const q = parseHash();
     let page = 'world';
-    if (q.area) page = 'area'; else if ('guide' in q) page = 'guide'; else if ('legend' in q) page = 'legend';
+    if (q.area) page = 'area'; else if ('guide' in q) page = 'guide'; else if ('legend' in q) page = 'legend'; else if ('download' in q) page = 'download';
     document.querySelectorAll('.page').forEach((p) => p.classList.toggle('active', p.id === 'page-' + page));
     document.querySelectorAll('header nav a').forEach((a) => a.classList.toggle('active', a.dataset.nav === page));
     if (page === 'guide' && q.s) { const h = document.getElementById('s-' + q.s); if (h) setTimeout(() => h.scrollIntoView(), 0); }

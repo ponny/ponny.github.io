@@ -15,6 +15,7 @@
     <a href="#area=1" data-nav="area">Map viewer</a>
     <a href="#guide" data-nav="guide">Walkthrough</a>
     <a href="#legend" data-nav="legend">Legend</a>
+    <a href="#download" data-nav="download">Download</a>
   </nav>
   <div class="spacer"></div>
   <label class="ctl">Colours
@@ -31,6 +32,9 @@
     Mordanneus. The kingdom is four islands; the fourth has already fallen. Every map below was decoded
     straight from the game's data files, so nothing is missing — including the caves you would otherwise
     need torches to see.</p>
+    <p class="pitch">Want to play it? The original 1.0 program <strong>cannot be finished</strong>: destroying any piece of the onyx
+    crown quits the game to DOS. This site offers a fixed build. <a href="#download">Download Ranadinn 1.0.1</a> (91&nbsp;KB, runs in
+    DOSBox).</p>
   </section>
   <div id="world-islands" class="islands"></div>
 </main>
@@ -107,7 +111,8 @@
 
   <h3 id="s-crown">The onyx crown and sceptre</h3>
   <p>Stand next to a fragment, use a <em>Crumble</em> scroll and target it. The game beeps, the fragment vanishes and a
-  hidden counter (it starts at 16 in <code>PS.RAN</code>) goes down. Three things to know:</p>
+  hidden counter (it starts at 16 in <code>PS.RAN</code>) goes down. (With the unpatched 1.0 program the game instead quits to DOS at this
+  point; use the <a href="#download">fixed 1.0.1 download</a>.) Three things to know:</p>
   <ul>
     <li><strong>Crumble needs Intelligence 18.</strong> You start at 13. Red wizard's stones give +1 each; there are seven,
     so you need five of them (fountains can also raise Intelligence — or lower it). Nothing else in the game raises a stat.</li>
@@ -305,6 +310,33 @@
   <code>S.RAN</code>, dialogue and signs from <code>T.RAN</code>, and the starting position from <code>PS.RAN</code>.
   Area links, creature statistics, combat rules, shop stock and item effects were read out of a disassembly of
   <code>RANADINN.COM</code>. See <code>tools/extract.py</code> in the repository.</p>
+</main>
+
+<main id="page-download" class="page prose">
+  <h2>Download Ranadinn 1.0.1</h2>
+  <p class="download"><a class="button" href="ranadinn-1.0.1.zip" download>&#11015; ranadinn-1.0.1.zip</a> <span class="co">91 KB &middot; MS-DOS &middot; runs in DOSBox</span></p>
+  <h3>Why you want this rather than the original</h3>
+  <p>The 1988 shareware release (version 1.0, PC-SIG disk 1350) has a bug that makes the game impossible to finish. The quest is to
+  destroy the fifteen fragments of the onyx crown and the sceptre with <em>Crumble</em> scrolls, but using Crumble on any of them,
+  not just the last, prints the victory farewell and drops you straight to DOS, as if the game had crashed. The code that
+  should remove the fragment and carry on is there in the program, but it is skipped, and because the game exits before it saves,
+  the hidden piece counter never goes down either. You can play for hours and then lose at the first fragment.</p>
+  <h3>What 1.0.1 changes</h3>
+  <ul>
+    <li>Two bytes of <code>RANADINN.COM</code>: destroying a fragment now continues the game. The kingdom is still razed when two
+    pieces remain, and the ending still plays when the last one goes.</li>
+    <li>The title screen reads "IBM PC Version 1.0.1" so the two builds can be told apart.</li>
+    <li>Nothing else. Every other file is the original shareware distribution, and maps and saves from a 1.0 game
+    (<code>A.RAN</code>, <code>PS.RAN</code>) work unchanged. If you are mid-game, just replace <code>RANADINN.COM</code>.</li>
+  </ul>
+  <h3>Running it</h3>
+  <p>Unzip into a folder and run <code>RANADINN</code> under <a href="https://www.dosbox.com/">DOSBox</a> or DOSBox-X. The game
+  writes its progress to <code>A.RAN</code> and <code>PS.RAN</code>, so don't run it from a read-only location, and keep a spare copy
+  of the folder, since that is the only save system. <code>PATCH.TXT</code> in the archive lists the changes. Then come back to the
+  <a href="#guide">walkthrough</a>.</p>
+  <p>Ranadinn is &copy; 1988 Jeff Mather, who released it as user-supported software and encouraged people to copy and share it.
+  <code>README.RAN</code> still asks for a $5&ndash;$10 contribution by post to a Tucson address, but that was nearly forty years ago
+  and is unlikely to reach him now. This fix is an unofficial fan patch, offered in the same spirit.</p>
 </main>
 
 <main id="page-legend" class="page prose">
