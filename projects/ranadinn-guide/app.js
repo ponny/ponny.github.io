@@ -235,6 +235,7 @@
       box.append(el('h3', {}, 'Reached from'));
       box.append(el('p', {}, link(a.parent.area), el('span', { class: 'co' }, ` at (${a.parent.x},${a.parent.y})`)));
     }
+    if (a.note) { box.append(el('h3', {}, 'Note')); box.append(el('p', { class: 'note' }, a.note)); }
     const exits = a.links.filter((l) => l.to && l.to !== a.id);
     const tele = a.links.filter((l) => l.kind === 'teleporter');
     if (exits.length || tele.length) {
@@ -497,6 +498,7 @@
       const box = el('div', { class: 'area' }, el('h4', {}, link(a.id)));
       const ul = el('ul');
       if (a.parent) ul.append(el('li', {}, 'Entered from ', link(a.parent.area), el('span', { class: 'co' }, ` at (${a.parent.x},${a.parent.y})`)));
+      if (a.note) ul.append(el('li', { class: 'note' }, a.note));
       a.links.filter((l) => l.to && l.to !== a.id).sort((p, q) => p.to - q.to).forEach((l) => ul.append(el('li', {},
         el('a', { href: `#area=${a.id}&x=${l.x}&y=${l.y}`, class: 'co' }, `(${l.x},${l.y})`), ` ${l.kind} → `, link(l.to))));
       a.links.filter((l) => l.kind === 'teleporter' || l.kind.startsWith('warp')).forEach((l) => ul.append(el('li', {}, el('span', { class: 'co' }, `(${l.x},${l.y}) `), l.kind)));
